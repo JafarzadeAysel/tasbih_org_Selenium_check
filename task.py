@@ -6,6 +6,12 @@ from selenium.webdriver.common.alert import Alert
 
 driver = webdriver.Chrome()
 driver.get("https://www.tasbih.org")
+
+#initial value check
+initial_value = driver.find_element(By.CLASS_NAME, "odometer-digit").text
+print(f"initial value is {initial_value}")
+assert initial_value == "0", "initial counter value is not 0"
+
 select = Select(driver.find_element(By.CLASS_NAME,"select.header-element"))
 
 select.select_by_index(1)
